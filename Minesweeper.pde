@@ -6,7 +6,7 @@ private int NUM_ROWS=20;
 private int NUM_COLS=20;
 private int NUM_BOMB=50;
 private MSButton[][] buttons; //2d array of minesweeper buttons
-private ArrayList <MSButton> bombs; //ArrayList of just the minesweeper buttons that are mined
+private ArrayList <MSButton> bombs = new ArrayList<MSButton>(80); //ArrayList of just the minesweeper buttons that are mined
 
 
 void setup ()
@@ -28,9 +28,10 @@ void setup ()
 public void setBombs()
 {
     //your code
-    while(bombs.size<NUM_BOMB){
-        int row=(int)(Math.random()NUM_ROWS);
-        int col=(int)(Math.random()NUM_COLS);
+    int row, col;
+    while(bombs.size()<NUM_BOMB){
+        row=(int)(Math.random()*NUM_ROWS);
+        col=(int)(Math.random()*NUM_COLS);
         if(!bombs.contains(buttons[row][col]))
             bombs.add(buttons[row][col]);
     }
